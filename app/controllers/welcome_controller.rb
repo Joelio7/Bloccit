@@ -4,6 +4,11 @@ class WelcomeController < ApplicationController
 
   def about
   end
-end
-def contact
+
+
+  def contact
+  end
+
+  def FAQ
+  end
 end
