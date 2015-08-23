@@ -1,39 +1,26 @@
-
-
-h1 {
-  color: red;
+.about-container {
+  position: absolute;
+  top:10%;
+  right: 2.5%;
+  left: 2.5%;
+  bottom: 5%;
 }
 
-#index-title {
-   text-align: center;
-   font-size: 15px;
-   color: blue;
- }
-
-.posts {
-  border: solid;
-  margin: 5px;
-  padding: 5px;
-  height: 200px;
+.social-cont {
+    position: absolute;
+  top: 6.5%;
+  right: 85%;
+  left: 1%;
+  bottom: 85%;
+  border: solid 3px steel;
 }
-section {
-  background: #5998ff;
-  border-style: solid;
-  border-width: 5px;
-  margin: 5px 5px 5px 5px;
-  padding: 5px 5px 5px 5px;
 
-}
 .social-btn {
-  color: red;
-  border-style: solid;
-  border-width: 10px;
-  margin: 10px 10px 10px 10px;
-  padding: 5px 5px 5px 5px;
-
-
-}
-
-h1 {
-  color: red;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 15%;
+ background-color: #75ACEE;
+  color: #292f33;
+  padding: 2% 5% 2% 5%;
 }
