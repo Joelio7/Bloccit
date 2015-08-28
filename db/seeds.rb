@@ -11,13 +11,16 @@ include RandomData
 
   )
 end
+
+Post.find_or_create_by!(
+  title:  "Unique post title",
+  body:   "Unique post body"
+)
+
 posts = Post.all
-
-
 
 100.times do
   Comment.create!(
-
     post:  posts.sample,
     body:  RandomData.random_paragraph
   )
