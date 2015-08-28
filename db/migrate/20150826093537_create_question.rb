@@ -1,6 +1,6 @@
-class CreateQuestions < ActiveRecord::Migration
+class CreateQuestion < ActiveRecord::Migration
   def change
-    create_table :questions do |t|
+    create_table :question do |t|
       t.string :title
       t.text :body
       t.boolean :resolved
