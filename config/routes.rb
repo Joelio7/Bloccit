@@ -1,14 +1,8 @@
 Rails.application.routes.draw do
-  get 'advertisement/index'
 
-  get 'advertisement/show'
-
-  get 'advertisement/new'
-
-  get 'advertisement/create'
-
+  get 'contact' => 'welcome#contact'
   get 'about' => 'welcome#about'
   resources :posts
-  resources :advertisement
+  resources :advertisements
   root to: 'welcome#index'
 end
