@@ -20,7 +20,7 @@ RSpec.describe AdvertisementsController, type: :controller do
   describe "GET show" do
    it "returns http success" do
 # #16
-     get :show, {id: advertisement.id}
+     get :show, {id: my_ad.id}
      expect(response).to have_http_status(:success)
    end
  end
