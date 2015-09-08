@@ -9,9 +9,9 @@ module RandomData
     sentences.join(" ")
   end
 
-  def random_number
-    rand(1..50).times do
-    end
+  def random_integer
+    rand(10..30)
+  end
 
   def random_sentence
     strings = []
