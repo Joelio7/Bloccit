@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :topics do
 
  # #34
-     resources :sponsored_post, :posts, except: [:index]
+     resources  :posts, except: [:index]
+     resources :sponsored_posts
 
   resources :advertisements
   root to: 'welcome#index'
