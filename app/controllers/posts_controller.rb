@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
-    def index
-      @posts = Post.all
+
 
      def show
        @post = Post.find(params[:id])
@@ -59,4 +58,4 @@ class PostsController < ApplicationController
         render :show
       end
     end
-end
+  end
