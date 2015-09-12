@@ -13,6 +13,10 @@ module RandomData
     sentences.join(" ")
   end
 
+  def random_integer
+    rand(10..30)
+  end
+
   def random_sentence
     strings = []
     rand(3..8).times do

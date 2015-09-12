@@ -39,7 +39,14 @@ copy: "New Copy",
 price: 500
 )
 end
+SponsoredPost.create!(
+title: RandomData.random_sentence
+body: RandomData.random_paragraph
+price: RandomData.random_integer
+)
+end
 puts "Seed finished"
+puts "#{SponsoredPost.count} sponsored posts created"
 puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
