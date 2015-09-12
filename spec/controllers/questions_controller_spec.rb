@@ -2,8 +2,8 @@ require 'rails_helper'
  include RandomData
 
  RSpec.describe QuestionsController do
+let (:my_question) {my_topic.questions.create!(title: RandomData.random_sentence , body: RandomData.random_paragraph, resolved: true || false ) }
 
-let (:questions) {Question.create!(title: RandomData.random_sentence , body: RandomData.random_paragraph, resolved: true || false ) }
 describe "GET index" do
   it "returns http success" do
     get :index
