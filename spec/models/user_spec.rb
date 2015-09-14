@@ -6,7 +6,6 @@ RSpec.describe User, type: :model do
   #shoulda tests for name
   it { should validate_presence_of(:name) }
   it { should validate_length_of(:name).is_at_least(1) }
-
     #shoulda tests for email
   it { should validate_presence_of(:email) }
   it { should validate_uniqueness_of(:email) }
@@ -26,6 +25,12 @@ RSpec.describe User, type: :model do
 
     it "should respond to email" do
       expect(user).to respond_to(:email)
+    end
+  end
+
+  describe "name" do
+    it "should be capitalized" do
+      expect(user.name).to eq("Bloccit User")
     end
   end
 
