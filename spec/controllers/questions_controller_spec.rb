@@ -15,9 +15,9 @@ end
     get :index
     expect(assigns(:questions)).to eq([my_question])
    end
-end
-describe "GET show" do
-    let   it "returns http success" do
+
+  describe "GET show" do
+    it "returns http success" do
      get :show, {id: my_question}
      expect(response).to have_http_status(:success)
    end
@@ -30,12 +30,11 @@ describe "GET show" do
    end
  end
 
+ describe "GET create" do
+   it "returns http success" do
+     get :create
+     expect(response).to have_http_status(:success)
+   end
+ end
 
- #describe "GET #create" do
-  # it "returns http success" do
-    # get :create
-    # expect(response).to have_http_status(:success)
-  # end
-# end
-
-#end
+end

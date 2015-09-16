@@ -9,7 +9,7 @@ Rails.application.routes.draw do
      resources  :posts, except: [:index]
   resources :advertisements
 end
-resources :questions 
+resources :questions
 get 'about' => 'welcome#about'
   root to: 'welcome#index'
 end
