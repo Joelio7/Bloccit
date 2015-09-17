@@ -1,0 +1,24 @@
+<h1>Questions</h1>
+
+<div class="row">
+  <div class="col-md-8">
+
+    <% @questions.each do |question| %>
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading">
+
+          <%= link_to question.title, question %>
+        </h4>
+        <small>
+          <%= question.body %>
+          </small>
+      </div>
+    </div>
+  <div class="col-md-4">
+    <%=  "solved" if question.resolved %>
+    <%=  "open" if !question.resolved %>
+    <%= link_to "New Question", new_question_path, class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>

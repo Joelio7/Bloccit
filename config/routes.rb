@@ -5,8 +5,9 @@ Rails.application.routes.draw do
      resources  :posts, except: [:index]
   resources :advertisements
 end
-resources :users 
 resources :questions
-get 'about' => 'welcome#about'
+    resources :users, only: [:new, :create]
+  get 'about' => 'welcome#about'
   root to: 'welcome#index'
+
 end
