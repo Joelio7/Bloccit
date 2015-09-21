@@ -1,5 +1,15 @@
 module RandomData
 
+  def random_name
+    first_name = random_word.capitalize
+    last_name = random_word.capitalize
+    "#{first_name} #{last_name}"
+  end
+
+  def random_email
+    "#{random_word}@#{random_word}.#{random_word}"
+  end
+
   def random_integer
     rand(10..30)
   end
@@ -27,7 +37,7 @@ module RandomData
     sentence.capitalize << "."
   end
 
-  
+
 
 
   def random_word

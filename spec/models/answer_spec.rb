@@ -1,4 +1,4 @@
-req uire 'rails_helper'
+require 'rails_helper'
 
 RSpec.describe Answer, type: :model do
   context "attributes" do
