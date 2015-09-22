@@ -1,4 +1,4 @@
 <h1>Sign Up Confirmation</h1>
 <p> Are you sure these values are correct?</p>
 <%= button_to "Yes", {:controller => "users", :action => "create", :params => params}, class: 'btn btn-success' %>
-<% end %>
+<%= button_to "No", {:controller => "users", :action => "new",  :params => params}, {:method => :get, class: 'btn btn-error'} %>
