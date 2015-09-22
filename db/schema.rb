@@ -21,14 +21,14 @@ ActiveRecord::Schema.define(version: 20150920053236) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "answers", force: :cascade do |t|
+  create_table "answer", force: :cascade do |t|
     t.text     "body"
     t.integer  "Question_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "answers", ["Question_id"], name: "index_answers_on_Question_id"
+  add_index "answer", ["Question_id"], name: "index_answer_on_Question_id"
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
