@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+
+
   belongs_to :topic
   belongs_to :user
     has_many :comments, dependent: :destroy
@@ -7,6 +9,8 @@ class Post < ActiveRecord::Base
     validates :topic, presence: true
     validates :user, presence: true
 
-    default_scope { order('created_at DESC') }
+    default_scope  { order(created_at: :desc) }
 
+    scope :ordered_by_title,  -> { reorder(title: :asc) }
+    scope :ordered_by_reverse_created_at, -> { reorder(created_at: :asc)}
 end
