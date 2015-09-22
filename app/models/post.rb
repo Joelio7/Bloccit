@@ -1,7 +1,6 @@
 class Post < ActiveRecord::Base
 
 
-attr_accessible :body, :title, :user
   belongs_to :topic
   belongs_to :user
     has_many :comments, dependent: :destroy
@@ -10,8 +9,8 @@ attr_accessible :body, :title, :user
     validates :topic, presence: true
     validates :user, presence: true
 
-    default_scope { order('created_at DESC') }
+    default_scope  { order(created_at: :desc) }
 
-    scope :ordered_by_title,  -> { order(title: :asc) }
-
+    scope :ordered_by_title,  -> { reorder(title: :asc) }
+    scope :ordered_by_reverse_created_at, -> { reorder(created_at: :asc)}
 end
