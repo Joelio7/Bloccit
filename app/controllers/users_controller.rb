@@ -13,20 +13,13 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:notice] = "Welcome to Bloccit #{@user.name}!"
-<<<<<<< HEAD
       create_session(@user)
-=======
-      #create_session(@user)
->>>>>>> user_sign_up_hw
       redirect_to root_path
     else
       flash[:error] = "There was an error creating your account. Please try again."
       render :new
     end
   end
-<<<<<<< HEAD
-end 
-=======
 
   def confirm
     @user = User.new
@@ -38,4 +31,3 @@ end
   end
 
 end
->>>>>>> user_sign_up_hw

@@ -29,7 +29,7 @@ module RandomData
 
   def random_sentence
     strings = []
-    rand(3..8).times do
+    rand(6..10).times do
       strings << random_word
     end
 
@@ -43,6 +43,6 @@ module RandomData
   def random_word
     letters = ('a'..'z').to_a
     letters.shuffle!
-    letters[0,rand(3..8)].join
+    letters[0,rand(4..8)].join
   end
 end
