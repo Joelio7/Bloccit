@@ -25,5 +25,5 @@ class User < ActiveRecord::Base
      gravatar_id = Digest::MD5::hexdigest(user.email).downcase
      "http://gravatar.com/avatar/#{gravatar_id}.png?s=48"
    end
-   enum role: [:member, :admin]
+   enum role: [:member, :admin, :moderator]
 end
