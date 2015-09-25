@@ -65,12 +65,11 @@ class PostsController < ApplicationController
       params.require(:post).permit(:title, :body)
     end
 
-    def authorize_user
-      post = Post.find(params[:id])
-
-    unless current_user == post.user || current_user.admin?
-        flash[:error] = "You must be an admin to do that."
-        redirect_to [post.topic, post]
+      def authorize_user
+        action = params['action']
+        if !current_user.admin? && %w[ destroy].include?(action)
+          flash[:error] = "You must be an admin to do that."
+          redirect_to topics_path
+        end
+      end
     end
-  end
-end

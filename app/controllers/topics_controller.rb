@@ -66,19 +66,13 @@ end
 
 
   def authorize_user
-    unless current_user.admin?||  current_user.moderator?
+    action = params['action']
+    if !current_user.admin? && %w[new create destroy].include?(action)
       flash[:error] = "You must be an admin to do that."
-      if current_user.moderator? do
-        @topic.destroy
-      end
-        flash[:error] = "You must be an admin to do that."
       redirect_to topics_path
-
+    elsif !(current_user.admin? || current_user.moderator?) && action == "update" 
+      flash[:error] = "You must be an admin to do that."
+      redirect_to topics_path
     end
   end
-
-
-
-
-end
 end
