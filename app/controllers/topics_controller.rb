@@ -20,6 +20,8 @@ class TopicsController < ApplicationController
     @topic = Topic.new(topic_params)
 
     if @topic.save
+
+      @topic.labels = Label.update_labels(params[:topic][:labels])
       redirect_to @topic, notice: "Topic was saved successfully."
     else
       flash[:error] = "Error creating topic. Please try again."
@@ -37,6 +39,7 @@ class TopicsController < ApplicationController
 
 
     if @topic.save
+      @topic.labels = Label.update_labels(params[:topic][:labels])
       flash[:notice] = "Topic was updated."
       redirect_to @topic
     else
@@ -70,7 +73,7 @@ end
     if !current_user.admin? && %w[new create destroy].include?(action)
       flash[:error] = "You must be an admin to do that."
       redirect_to topics_path
-    elsif !(current_user.admin? || current_user.moderator?) && action == "update" 
+    elsif !(current_user.admin? || current_user.moderator?) && action == "update"
       flash[:error] = "You must be an admin to do that."
       redirect_to topics_path
     end
