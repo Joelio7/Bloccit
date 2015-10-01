@@ -83,5 +83,12 @@ include RandomData
          expect(post.rank).to eq (old_rank - 1)
        end
      end
+
+     describe "#create_vote" do
+
+       it "creates new vote for the post on which it's called" do
+         expect { user.votes.create!(value: 1)}.to  change{Vote.count}.by(1)
+       end
+     end
    end
  end
