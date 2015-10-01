@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 
-
+  has_one :rating
   belongs_to :topic
   belongs_to :user
   has_many :labelings, as: :labelable

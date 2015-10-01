@@ -6,6 +6,11 @@
       <br />
       <%= @topic.description %>
     </p>
+    <p class="lead">
+      <%= render partial: "ratings/list", locals: { ratings: @topic.ratings } %>
+      <br />
+      <%= @topic.description %>
+    </p>
     <% @topic.posts.each do |post| %>
       <div class="media">
         <%= render partial: 'votes/voter', locals: { post: post } %>

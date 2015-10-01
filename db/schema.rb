@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20151001043640) do
+=======
+ActiveRecord::Schema.define(version: 20150928210108) do
+>>>>>>> rating_hw
 
   create_table "advertisements", force: :cascade do |t|
     t.string   "title"
