@@ -1,7 +1,7 @@
-class FavoriteMailer < ApplicationMailer
-  default from: "joel.scalera@gmail.com"
+class FavoriteMailer < ActionMailer::Base
+   default from: "joel.scalera@gmail.com"
 
-  def new_comment(user, post, comment)
+   def new_comment(user, post, comment)
 
      headers["Message-ID"] = "<comments/#{comment.id}@your-app-name.example>"
      headers["In-Reply-To"] = "<post/#{post.id}@your-app-name.example>"
