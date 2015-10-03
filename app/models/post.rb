@@ -12,6 +12,11 @@ class Post < ActiveRecord::Base
   validates :topic, presence: true
   validates :user, presence: true
 
+  default_scope  { order('rank DESC') }
+
+    scope :ordered_by_title,  -> { reorder(title: :asc) }
+    scope :ordered_by_reverse_created_at, -> { reorder(created_at: :asc)}
+
   def up_votes
     votes.where(value: 1).count
   end
@@ -30,14 +35,15 @@ class Post < ActiveRecord::Base
     update_attribute(:rank, new_rank)
   end
 
+
+
 private
 
 def create_vote
-  
 
 
-  default_scope  { order('rank DESC') }
 
-    scope :ordered_by_title,  -> { reorder(title: :asc) }
-    scope :ordered_by_reverse_created_at, -> { reorder(created_at: :asc)}
+
+
+end
   end
