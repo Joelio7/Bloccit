@@ -17,7 +17,7 @@ resources :questions
 
     resources :sessions, only: [:new, :create, :destroy]
 
-    resources  :users, only: [:new, :create]
+    resources  :users, only: [:new, :create, :show]
         post   "/confirm" => "users#confirm"
 
 

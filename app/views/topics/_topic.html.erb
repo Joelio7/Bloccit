@@ -1,4 +1,4 @@
-<% @topics.each do |topic| %>
+<% @topics do |topic| %>
 <div class="media">
   <div class="media-body">
     <h4 class="media-heading">
@@ -8,7 +8,7 @@
       <%= topic.description %>
       </small>
   </div>
-  
+
 </div>
 
   </div>
