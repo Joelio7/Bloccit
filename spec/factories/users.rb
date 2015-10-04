@@ -1,7 +1,7 @@
 include RandomData
 
 FactoryGirl.define do
-  pw = RandomData.random_sentence
+  pw = RandomData.random_word
 
   factory :user do
     name RandomData.random_name
