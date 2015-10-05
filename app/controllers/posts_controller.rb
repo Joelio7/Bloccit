@@ -20,6 +20,7 @@ class PostsController < ApplicationController
       @post.user = current_user
 
       if @post.save
+        # @post.ratings = Rating.update_ratings(params[:post][:ratings])
         @post.labels = Label.update_labels(params[:post][:labels])
         flash[:notice] = "Post was saved."
    # #36
@@ -39,6 +40,7 @@ class PostsController < ApplicationController
       @post.assign_attributes(post_params)
 
        if @post.save
+        #  @post.ratings = Rating.update_ratings(params[:post][:ratings])
            @post.labels = Label.update_labels(params[:post] [:labels])
          flash[:notice] = "Post was updated."
    # #37

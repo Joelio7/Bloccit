@@ -16,15 +16,13 @@
         <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Questions", questions_path%></li>
 
-
+        <div class="pull-right user-info">
           <% if current_user %>
-          <div class="pull-right user-info">
-  <img src = "https://s.gravatar.com/avatar/ea0f86582274f90bd85c64308c03fc7b?s=80#{hash}">
           <%= image_tag User.avatar_url(current_user, 48), class: "gravatar" %>
            <div class="pull-right">
-           </div>
- // #10
              <%= link_to current_user.name, user_path(current_user) %> <br/> <%= link_to "Sign Out", session_path(current_user), method: :delete %>
+           </div>
+           <% else %>
           <%= link_to "Sign In", new_session_path %> or
           <%= link_to "SIgn Up", new_user_path %>
           <% end %>

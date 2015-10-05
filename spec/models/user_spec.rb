@@ -21,27 +21,28 @@ RSpec.describe User, type: :model do
   it { should have_many(:votes) }
 
 
-#   describe "attributes" do
-#
-#     it "should respond to name" do
-#       expect(user).to respond_to(:name)
-#     end
-#
-#     it "should respond to email" do
-#       expect(user).to respond_to(:email)
-#     end
-#   end
-#
-#   describe "name" do
-#     it "should be capitalized" do
-#       expect(user.name).to eq("Bloccit User")
-#     end
-#   end
-#
-#   describe "invalid user" do
-#     let(:user_with_invalid_name) { User.new(name: "", email: "username@bloccit.com") }
-#     let(:user_with_invalid_email) {User.new(name: "Bloccit User", email: "") }
-#     let (:user_with_invalid_email_format) {User.new(name: "Bloccit User", email: "invalid_format" ) }
+  describe "attributes" do
+
+    it "should respond to name" do
+      expect(user).to respond_to(:name)
+    end
+
+    it "should respond to email" do
+      expect(user).to respond_to(:email)
+    end
+  end
+
+  describe "name" do
+    it "should be capitalized" do
+      expect(user.name).to eq("Bloccit User")
+    end
+  end
+
+  describe "invalid user" do
+   let(:user_with_invalid_name) { build(:user, name: "") }
+     let(:user_with_invalid_email) { build(:user, email: "") }
+     let(:user_with_invalid_email_format) { build(:user, email: "invalid_format") }
+
 # #
 #     it "should be invalid user due to blank name" do
 #       expect(user_with_invalid_name).to_not be_valid
