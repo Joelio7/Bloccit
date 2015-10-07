@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+  <h1>New favorite for "<%= @post.title %>"</h1>
+  <small>
+    By: <%= @post.user.name %>
+  </small>
+  <p>
+    <%= @post.favorite %>
+  </p>
+  <p>
+
+    <%= link_to "View who favorited you", topic_post_url(@post.topic, @post, anchor: "favorite-#{@post.id}") %>
+  </p>
+</body>
+</html>
