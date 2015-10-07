@@ -1,6 +1,9 @@
 class Post < ActiveRecord::Base
 
+
   has_one :rating
+  after_create :create_vote
+
   belongs_to :topic
   belongs_to :user
   has_many :labelings, as: :labelable
@@ -8,15 +11,20 @@ class Post < ActiveRecord::Base
   has_many :votes, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
-  # validates :title, length: { minimum: 5 }, presence: true
-  # validates :body, length: {minimum: 20 }, presence: true
-  # validates :topic, presence: true
-  # validates :user, presence: true
+  validates :title, length: { minimum: 5 }, presence: true
+  validates :body, length: {minimum: 20 }, presence: true
+  validates :topic, presence: true
+  validates :user, presence: true
 
   default_scope  { order('rank DESC') }
 
   scope :ordered_by_title,  -> { reorder(title: :asc) }
   scope :ordered_by_reverse_created_at, -> { reorder(created_at: :asc)}
+
+  default_scope  { order('rank DESC') }
+
+    scope :ordered_by_title,  -> { reorder(title: :asc) }
+    scope :ordered_by_reverse_created_at, -> { reorder(created_at: :asc)}
 
   def up_votes
     votes.where(value: 1).count
@@ -37,8 +45,10 @@ class Post < ActiveRecord::Base
   end
 
 
+private
 
-
-
+  def create_vote
+    user.votes.create(post: self, value: 1)
+  end
 
 end
