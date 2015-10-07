@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-
+  after_create :create_vote
 
   belongs_to :topic
   belongs_to :user
@@ -39,11 +39,7 @@ class Post < ActiveRecord::Base
 
 private
 
-def create_vote
-
-
-
-
-
-end
+  def create_vote
+    user.votes.create(post: self, value: 1)
   end
+end
