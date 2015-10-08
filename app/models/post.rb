@@ -17,12 +17,11 @@ class Post < ActiveRecord::Base
   validates :topic, presence: true
   validates :user, presence: true
 
-  default_scope  { order('rank DESC') }
 
-  scope :ordered_by_title,  -> { reorder(title: :asc) }
-  scope :ordered_by_reverse_created_at, -> { reorder(created_at: :asc)}
 
-  default_scope  { order('rank DESC') }
+  default_scope { order('rank DESC') }
+ # #15
+   scope :visible_to, -> (user) { user ? all : joins(:topic).where('topics.public' => true) }
 
     scope :ordered_by_title,  -> { reorder(title: :asc) }
     scope :ordered_by_reverse_created_at, -> { reorder(created_at: :asc)}
@@ -46,11 +45,13 @@ class Post < ActiveRecord::Base
   end
 
 
+<<<<<<< HEAD
 private
 
   def create_vote
     user.votes.create(post: self, value: 1)
   end
+
 
   private
 
