@@ -1,3 +1,4 @@
+
 <div>
   <%= render partial: 'votes/voter', locals: { post: @post } %>
   <h1>
@@ -5,6 +6,10 @@
     <small>
       submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.name %>
     </small>
+    <div class="row">
+      <div class"col-md-8">
+        <p class="lead"><%= @post.body %></p>
+      </div>
   </h1>
 </div>
 <div class="row">
@@ -13,8 +18,7 @@
     <br />
     </div>
     </div>
-    <br />
-    <br />
+
     </div>
     </div>
     <br />
@@ -27,7 +31,7 @@
     <% if current_user %>
     <%= render 'comments/form', comment: Comment.new, post: @post %>
     <% end %>
-    <p><%= @post.body %></p>
+
   </div>
   <% if user_is_authorized_for_post?(@post) %>
   <div class="col-md-4">

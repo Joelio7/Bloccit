@@ -3,7 +3,6 @@ class Post < ActiveRecord::Base
 
   has_one :rating
   after_create :create_vote
-  after_create :new_post
 
   belongs_to :topic
   belongs_to :user
@@ -45,7 +44,7 @@ class Post < ActiveRecord::Base
   end
 
 
-<<<<<<< HEAD
+
 private
 
   def create_vote
@@ -55,11 +54,11 @@ private
 
   private
 
-  def new_post
-    post.favorites.each do |favorite|
-      FavoriteMailer.new_favorite(favorite.user, post, self).deliver_now
-    end
-
-  end
+  # def new_post
+  #   post.favorites.each do |favorite|
+  #     FavoriteMailer.new_favorite(favorite.user, post, self).deliver_now
+  #   end
+  #
+  # end
 
 end

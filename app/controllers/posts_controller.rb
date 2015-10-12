@@ -15,12 +15,11 @@ class PostsController < ApplicationController
      end
 
      def create
-      @topic = Topic.find(params[:topic_id])
-      @post = @topic.posts.build(post_params)
-      @post.user = current_user
+        @topic = Topic.find(params[:topic_id])
+        @post = @topic.posts.build(post_params)
+        @post.user = current_user
 
       if @post.save
-        # @post.ratings = Rating.update_ratings(params[:post][:ratings])
         @post.labels = Label.update_labels(params[:post][:labels])
         flash[:notice] = "Post was saved."
    # #36
@@ -40,7 +39,6 @@ class PostsController < ApplicationController
       @post.assign_attributes(post_params)
 
        if @post.save
-        #  @post.ratings = Rating.update_ratings(params[:post][:ratings])
            @post.labels = Label.update_labels(params[:post] [:labels])
          flash[:notice] = "Post was updated."
    # #37
@@ -65,9 +63,10 @@ class PostsController < ApplicationController
     end
 
     private
-    def post_params
-      params.require(:post).permit(:title, :body)
-    end
+
+      def post_params
+        params.require(:post).permit(:title, :body)
+      end
 
       def authorize_user
         action = params['action']
