@@ -2,6 +2,7 @@ require 'rails_helper'
 include RandomData
 
 RSpec.describe TopicsController, type: :controller do
+  let (:my_private_topic) { create(:topic, public: false) }
 let(:my_topic)  { create(:topic) }
 describe "GET index" do
   it "returns http success" do
@@ -11,15 +12,16 @@ describe "GET index" do
 
   it "assigns my_topic to @topics" do
     get :index
-    expect(assigns(:topics)).to eq([my_topic])
+   expect(assigns(:topics)).to eq([my_topic, my_private_topic])
     end
   end
 
   describe "GET show" do
-     it "returns http success" do
-       get :show
-       expect(response).to have_http_status(:success)
+    it "redirects from private topics" do
+       get :show, {id: my_private_topic.id}
+       expect(response).to redirect_to(new_session_path)
      end
+
 
      it "renders the #show view" do
        get :show, {id: my_topic.id}
@@ -28,7 +30,7 @@ describe "GET index" do
 
      it "assigns my_topic to @topic" do
        get :show, {id: my_topic.id}
-       expect(assigns(:topic)).to eq(my_topic)
+       expect(assigns(:topics)).to eq([my_topic, my_private_topic])
      end
    end
 
@@ -86,6 +88,12 @@ describe "GET index" do
       end
     end
 
+    it "does not include private topics in @topics" do
+         get :index
+         expect(assigns(:topics)).not_to include(my_private_topic)
+       end
+     end
+
     describe "PUT update" do
       it "updates topic with expected attributes" do
         new_name = RandomData.random_sentence
@@ -119,7 +127,7 @@ describe "GET index" do
           expect(response).to redirect_to topics_path
         end
       end
-    end
+
 
 
 end
