@@ -1,7 +1,17 @@
 module UsersHelper
-  def post_and_comments(user)
-    if user.posts || user.post.comments = nil
-      "{user.name} has not submitted any posts yet."
+  def posts_heading(user)
+    if user.posts.empty?
+      "#{user.name} has not submitted any posts yet."
+    else
+      "Posts"
     end
-end
+  end
+
+  def comments_heading(user)
+    if user.comments.empty?
+      "#{user.name} has not submitted any comments yet."
+    else
+      "Comments"
+    end
+  end
 end
