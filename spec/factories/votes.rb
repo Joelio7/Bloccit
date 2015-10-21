@@ -3,7 +3,7 @@ include RandomData
 FactoryGirl.define do
   factory :vote do
     value
-    user_id
-    post_id
+    user
+    post
   end
 end
