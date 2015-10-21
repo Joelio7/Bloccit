@@ -30,6 +30,8 @@ resources :questions
     namespace :v1 do
       resources :users, only: [:index, :show]
       resources :topics, only: [:index, :show]
+      resources :posts, only: [:index, :show]
+      resources :comments, only: [:index, :show]
     end
   end
 end
