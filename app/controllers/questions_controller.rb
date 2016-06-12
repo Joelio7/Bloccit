@@ -49,7 +49,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
 
     if @question.destroy
-      flash[:notice] = "\"#{@question.title}\" was deleted sucessfully."
+      flash[:notice] = "\"#{@question.title}\" was deleted successfully."
       redirect_to action: :index
     else
       flash[:error] = "There was an error deleting the question."
